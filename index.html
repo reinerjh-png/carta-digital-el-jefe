@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta - El Jefe Lounge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      color: #222;
+    }
+
+    header {
+      background: #1f2e1d;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #eaeaea;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav button {
+      margin: 5px;
+      padding: 10px 15px;
+      background: #2e3d2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    nav button:hover {
+      background: #3f513e;
+    }
+
+    .section {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #2e3d2f;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>El Jefe Lounge</h1>
+  <p>🍽️ Carta Digital – Sabores del Amazonas</p>
+</header>
+
+<nav>
+  <button onclick="scrollToSection('combos')">🍱 Combos</button>
+  <button onclick="scrollToSection('platos')">🥘 Platos</button>
+  <button onclick="scrollToSection('bebidas')">🥤 Bebidas</button>
+  <button onclick="scrollToSection('cervezas')">🍺 Cervezas</button>
+  <button onclick="scrollToSection('piqueos')">🍢 Piqueos</button>
+</nav>
+
+<div class="section" id="combos">
+  <h2>🍱 Combos</h2>
+  <ul>
+    <li><span>Fetuccini a la Huancaína + Fetuccini al Pesto</span><span class="price">S/ 35.00</span></li>
+    <li><span>Ceviche + Chicharrón</span><span class="price">S/ 40.00</span></li>
+  </ul>
+</div>
+
+<div class="section" id="platos">
+  <h2>🥘 Platos</h2>
+  <ul>
+    <li><span>Fetuccini al Pesto</span><span class="price">S/ 25.00</span></li>
+    <li><span>Fetuccini a la Huancaína</span><span class="price">S/ 25.00</span></li>
+    <li><span>Fetuccini con Paiche</span><span class="price">S/ 35.00</span></li>
+    <li><span>Fetuccini Amazónico</span><span class="price">S/ 28.00</span></li>
+    <li><span>Chicharrón de Pollo</span><span class="price">S/ 22.00</span></li>
+    <li><span>Ceviche Amazónico</span><span class="price">S/ 35.00</span></li>
+    <li><span>Chicharrón de Paiche</span><span class="price">S/ 35.00</span></li>
+    <li><span>Paiche a la Plancha</span><span class="price">S/ 35.00</span></li>
+    <li><span>Leche de Tigre</span><span class="price">S/ 18.00</span></li>
+    <li><span>Lomo Saltado</span><span class="price">S/ 18.00</span></li>
+    <li><span>Saltado Amazónico</span><span class="price">S/ 20.00</span></li>
+    <li><span>Saltado de Pollo</span><span class="price">S/ 18.00</span></li>
+    <li><span>Pechuga a la Plancha</span><span class="price">S/ 20.00</span></li>
+    <li><span>Pechuga en Salsa Nativa</span><span class="price">S/ 25.00</span></li>
+    <li><span>Tacacho con Cecina</span><span class="price">S/ 18.00</span></li>
+    <li><span>Tacacho Mixto</span><span class="price">S/ 20.00</span></li>
+    <li><span>Paiche Amazónico</span><span class="price">S/ 30.00</span></li>
+  </ul>
+</div>
+
+<div class="section" id="bebidas">
+  <h2>🥤 Bebidas</h2>
+  <ul>
+    <li><span>Limonada Tradicional</span><span class="price">S/ 8.00</span></li>
+    <li><span>Limonada con Frutas</span><span class="price">S/ 11.00</span></li>
+    <li><span>Limonada Frozen</span><span class="price">S/ 11.00</span></li>
+    <li><span>Gaseosa 500ml</span><span class="price">S/ 4.00</span></li>
+    <li><span>Gaseosa 1L</span><span class="price">S/ 6.00</span></li>
+    <li><span>Agua Mineral</span><span class="price">S/ 5.00</span></li>
+  </ul>
+</div>
+
+<div class="section" id="cervezas">
+  <h2>🍺 Cervezas</h2>
+  <ul>
+    <li><span>San Juan</span><span class="price">S/ 8.00</span></li>
+    <li><span>Corona</span><span class="price">S/ 8.00</span></li>
+    <li><span>Pilsen</span><span class="price">S/ 9.00</span></li>
+    <li><span>Cusqueña</span><span class="price">S/ 10.00</span></li>
+    <li><span>Cusqueña Personal</span><span class="price">S/ 6.00</span></li>
+  </ul>
+</div>
+
+<div class="section" id="piqueos">
+  <h2>🍢 Piqueos</h2>
+  <ul>
+    <li><span>Tequeño Amazónico</span><span class="price">S/ 15.00</span></li>
+    <li><span>Patacones a la Chalaca Amazónico DOC</span><span class="price">S/ 18.00</span></li>
+    <li><span>Canasta de Plátanos en Salsa Nativa DOC</span><span class="price">S/ 20.00</span></li>
+    <li><span>Chifle con Cecina</span><span class="price">S/ 13.00</span></li>
+  </ul>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+<footer style="text-align:center; margin-top:50px; font-size: 13px; color: #999;">
+  © 2025 - Diseñado por <strong>Reiner Jimenez</strong>
+</footer>
+
+</body>
+</html>
