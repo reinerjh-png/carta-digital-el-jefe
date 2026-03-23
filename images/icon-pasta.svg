@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="pastaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#4ADE80"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="rgba(34, 197, 94, 0.1)" stroke="url(#pastaGrad)" stroke-width="2"/>
+  <!-- Pasta strands -->
+  <path d="M35 40 Q40 50 35 65" stroke="url(#pastaGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M45 38 Q50 50 45 67" stroke="url(#pastaGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M55 38 Q60 50 55 67" stroke="url(#pastaGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M65 40 Q70 50 65 65" stroke="url(#pastaGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Sauce swirl -->
+  <path d="M40 50 Q50 45 60 50" stroke="url(#pastaGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  <circle cx="50" cy="48" r="3" fill="url(#pastaGrad)" opacity="0.5"/>
+</svg>

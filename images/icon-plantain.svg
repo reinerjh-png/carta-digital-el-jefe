@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="plantainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#4ADE80"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="rgba(34, 197, 94, 0.1)" stroke="url(#plantainGrad)" stroke-width="2"/>
+  <!-- Plantain shape -->
+  <path d="M35 45 Q30 50 35 60 Q40 65 50 63 Q60 65 65 60 Q70 50 65 45 Q60 40 50 42 Q40 40 35 45" fill="url(#plantainGrad)" opacity="0.7"/>
+  <!-- Texture lines -->
+  <path d="M40 48 Q50 50 60 48" stroke="rgba(0,0,0,0.2)" stroke-width="1" fill="none"/>
+  <path d="M38 54 Q50 56 62 54" stroke="rgba(0,0,0,0.2)" stroke-width="1" fill="none"/>
+</svg>

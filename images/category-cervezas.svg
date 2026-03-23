@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="cervezasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F4CF57"/>
+      <stop offset="100%" style="stop-color:#D4AF37"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="rgba(212, 175, 55, 0.1)" stroke="url(#cervezasGrad)" stroke-width="2"/>
+  
+  <!-- Beer mug -->
+  <path d="M40 45 L40 85 Q40 92 60 92 Q80 92 80 85 L80 45" fill="none" stroke="url(#cervezasGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Handle -->
+  <path d="M80 55 L90 55 Q95 55 95 65 Q95 75 90 75 L80 75" fill="none" stroke="url(#cervezasGrad)" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Beer liquid -->
+  <path d="M43 50 L43 82 Q43 88 60 88 Q77 88 77 82 L77 50" fill="url(#cervezasGrad)" opacity="0.5"/>
+  
+  <!-- Foam -->
+  <path d="M42 50 Q42 42 60 42 Q78 42 78 50" fill="url(#cervezasGrad)" opacity="0.8"/>
+  <circle cx="50" cy="45" r="4" fill="url(#cervezasGrad)" opacity="0.6"/>
+  <circle cx="60" cy="43" r="5" fill="url(#cervezasGrad)" opacity="0.6"/>
+  <circle cx="70" cy="45" r="4" fill="url(#cervezasGrad)" opacity="0.6"/>
+  
+  <!-- Bubbles -->
+  <circle cx="50" cy="65" r="1.5" fill="url(#cervezasGrad)" opacity="0.5"/>
+  <circle cx="65" cy="70" r="1" fill="url(#cervezasGrad)" opacity="0.5"/>
+  <circle cx="55" cy="75" r="1.5" fill="url(#cervezasGrad)" opacity="0.5"/>
+  <circle cx="70" cy="60" r="1" fill="url(#cervezasGrad)" opacity="0.5"/>
+  
+  <!-- Glow -->
+  <circle cx="60" cy="60" r="50" fill="url(#cervezasGrad)" opacity="0.1" filter="url(#glow)"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="cheeseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37"/>
+      <stop offset="100%" style="stop-color:#F4CF57"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="rgba(212, 175, 55, 0.1)" stroke="url(#cheeseGrad)" stroke-width="2"/>
+  <!-- Tequeño stick -->
+  <rect x="35" y="42" width="30" height="16" rx="3" fill="none" stroke="url(#cheeseGrad)" stroke-width="2"/>
+  <!-- Cheese pull -->
+  <path d="M65 48 Q75 50 80 45" stroke="url(#cheeseGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  <circle cx="82" cy="44" r="3" fill="url(#cheeseGrad)" opacity="0.5"/>
+  <!-- Texture -->
+  <line x1="42" y1="45" x2="42" y2="55" stroke="url(#cheeseGrad)" stroke-width="1" opacity="0.4"/>
+  <line x1="50" y1="45" x2="50" y2="55" stroke="url(#cheeseGrad)" stroke-width="1" opacity="0.4"/>
+  <line x1="58" y1="45" x2="58" y2="55" stroke="url(#cheeseGrad)" stroke-width="1" opacity="0.4"/>
+</svg>

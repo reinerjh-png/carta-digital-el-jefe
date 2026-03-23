@@ -1,176 +1,1040 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta - El Jefe Lounge</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fdfdfd;
-      margin: 0;
-      color: #222;
-    }
-
-    header {
-      background: #1f2e1d;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #eaeaea;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav button {
-      margin: 5px;
-      padding: 10px 15px;
-      background: #2e3d2f;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    nav button:hover {
-      background: #3f513e;
-    }
-
-    .section {
-      padding: 30px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #2e3d2f;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-      font-size: 1.8em;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-      font-size: 1.1em;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #444;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El Jefe - Fusión Amazónica & Lounge. Carta digital interactiva en Jacintillo.">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>El Jefe | Fusión Amazónica & Lounge</title>
+    
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+        :root{--neon-green:#22C55E;--neon-green-light:#4ADE80;--neon-green-dark:#16A34A;--neon-green-glow:rgba(34,197,94,0.5);--gold:#D4AF37;--gold-light:#F4CF57;--gold-dark:#B8941F;--gold-glow:rgba(212,175,55,0.4);--bg-primary:#0a0a0a;--bg-secondary:#0f0f0f;--bg-tertiary:#141414;--glass-bg:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08);--text-primary:#fff;--text-secondary:#a0a0a0;--text-muted:#666;--font-display:'Playfair Display',Georgia,serif;--font-body:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;--space-md:1.5rem;--space-lg:2rem;--space-xl:3rem;--transition-base:0.3s cubic-bezier(0.4,0,0.2,1);--radius-lg:20px;--radius-xl:30px;--glow-green:0 0 30px rgba(34,197,94,0.5)}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-body);background:linear-gradient(180deg,var(--bg-primary) 0%,var(--bg-secondary) 50%,var(--bg-primary) 100%);color:var(--text-primary);line-height:1.6;overflow-x:hidden;min-height:100vh}
+        body.loaded{overflow:auto}
+        .preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at center,var(--bg-tertiary) 0%,var(--bg-primary) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10000;transition:opacity 0.8s ease,visibility 0.8s ease}
+        .preloader.hidden{opacity:0;visibility:hidden}
+        .preloader-ring{position:absolute;border-radius:50%;border:2px solid transparent;border-top-color:var(--neon-green);animation:spin 1.5s linear infinite}
+        .preloader-ring:nth-child(1){width:80px;height:80px;border-right-color:var(--gold)}
+        .preloader-ring:nth-child(2){width:120px;height:120px;border-bottom-color:var(--neon-green);animation-direction:reverse;animation-duration:2s}
+        .preloader-ring:nth-child(3){width:160px;height:160px;border-left-color:var(--gold);animation-duration:2.5s}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .logo-container{text-align:center}
+        .logo-text-fallback{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--neon-green);text-shadow:0 0 20px var(--neon-green-glow);letter-spacing:4px}
+        .loading-text{margin-top:var(--space-lg);font-size:0.9rem;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;animation:pulse-text 1.5s ease-in-out infinite}
+        @keyframes pulse-text{0%,100%{opacity:0.5}50%{opacity:1}}
+        .particles-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;overflow:hidden;pointer-events:none}
+        .particle{position:absolute;width:4px;height:4px;background:var(--neon-green);border-radius:50%;opacity:0;animation:particle-float 15s infinite;box-shadow:0 0 10px var(--neon-green)}
+        @keyframes particle-float{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:1}90%{opacity:1}100%{opacity:0;transform:translateY(-100px) scale(1)}}
+        .ambient-light{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;pointer-events:none}
+        .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.3;animation:orb-float 20s ease-in-out infinite}
+        .orb-1{width:500px;height:500px;background:radial-gradient(circle,var(--neon-green) 0%,transparent 70%);top:-200px;left:-200px}
+        .orb-2{width:400px;height:400px;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);bottom:-150px;right:-150px;animation-delay:-7s}
+        .orb-3{width:300px;height:300px;background:radial-gradient(circle,var(--neon-green-dark) 0%,transparent 70%);top:50%;left:50%;animation-delay:-14s}
+        @keyframes orb-float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-80px) scale(1.1)}66%{transform:translate(-40px,40px) scale(0.9)}}
+        .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:var(--space-md) 0;transition:all var(--transition-base)}
+        .navbar.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:var(--space-md) 0}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 var(--space-md);display:flex;justify-content:space-between;align-items:center}
+        .nav-brand{display:flex;align-items:center;gap:var(--space-md);z-index:1002}
+        .brand-logo{font-size:1.8rem;filter:drop-shadow(0 0 10px var(--neon-green-glow))}
+        .brand-text{display:flex;flex-direction:column}
+        .brand-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--neon-green);letter-spacing:2px}
+        .brand-tag{font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--text-secondary)}
+        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:var(--space-xl) var(--space-md);overflow:hidden}
+        .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1}
+        .hero-image-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at center,transparent 0%,var(--bg-primary) 90%);z-index:1}
+        .hero-content{position:relative;z-index:2;text-align:center;max-width:800px}
+        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--glass-bg);border:1px solid var(--glass-border);padding:0.5rem 1.5rem;border-radius:var(--radius-xl);font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--neon-green);margin-bottom:var(--space-lg);backdrop-filter:blur(20px)}
+        .badge-leaf{font-size:1.2rem;filter:drop-shadow(0 0 10px var(--neon-green-glow))}
+        .hero-title{margin-bottom:var(--space-md)}
+        .title-main{display:block;font-family:var(--font-display);font-size:clamp(3.5rem,10vw,7rem);font-weight:700;line-height:1;letter-spacing:-2px;color:var(--text-primary);text-shadow:0 0 40px rgba(255,255,255,0.1)}
+        .title-accent{display:block;font-family:var(--font-display);font-size:clamp(3.5rem,10vw,7rem);font-weight:700;line-height:1;letter-spacing:-2px;color:var(--neon-green);text-shadow:var(--glow-green)}
+        .hero-tagline{font-size:clamp(1rem,2.5vw,1.5rem);font-weight:300;letter-spacing:8px;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-md);text-shadow:0 0 20px rgba(212,175,55,0.4)}
+        .hero-desc{font-size:clamp(1rem,2vw,1.15rem);color:var(--text-secondary);max-width:600px;margin:0 auto var(--space-xl);line-height:1.9}
+        .hero-actions{display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap}
+        .btn{display:inline-flex;align-items:center;gap:var(--space-md);padding:var(--space-md) var(--space-xl);border-radius:var(--radius-xl);font-size:0.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:var(--transition-base);position:relative;overflow:hidden}
+        .btn-glow{background:linear-gradient(135deg,var(--neon-green) 0%,var(--neon-green-dark) 100%);color:var(--bg-primary);box-shadow:0 4px 20px var(--neon-green-glow)}
+        .btn-glow:hover{transform:translateY(-3px);box-shadow:0 8px 40px var(--neon-green-glow)}
+        .btn-ghost{background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--text-primary);backdrop-filter:blur(20px)}
+        .btn-ghost:hover{background:var(--glass-border);border-color:var(--neon-green);color:var(--neon-green)}
+        .hero-scroll{position:absolute;bottom:var(--space-xl);left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.5rem}
+        .scroll-mouse{width:26px;height:40px;border:2px solid var(--text-muted);border-radius:13px;position:relative}
+        .scroll-wheel{width:4px;height:8px;background:var(--neon-green);border-radius:2px;position:absolute;top:8px;left:50%;transform:translateX(-50%);animation:scroll-wheel 2s ease-in-out infinite;box-shadow:0 0 10px var(--neon-green)}
+        @keyframes scroll-wheel{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
+        .scroll-text{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted)}
+        .animate-fade-in{opacity:0;animation:fadeIn 0.8s ease forwards}
+        @keyframes fadeIn{to{opacity:1}}
+        .animate-slide-up{opacity:0;transform:translateY(30px);animation:slideUp 0.8s ease forwards}
+        @keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+        .delay-1{animation-delay:0.1s}.delay-2{animation-delay:0.2s}.delay-3{animation-delay:0.3s}
+        .container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--space-md)}
+        .section-header{text-align:center;margin-bottom:var(--space-xl)}
+        .section-label{display:inline-block;font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;color:var(--neon-green);margin-bottom:var(--space-md);position:relative}
+        .section-label::before,.section-label::after{content:'✦';margin:0 var(--space-sm);opacity:0.5}
+        .section-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;color:var(--text-primary);letter-spacing:-1px}
+        .title-line{width:60px;height:3px;background:linear-gradient(90deg,var(--neon-green),transparent);margin:var(--space-md) auto 0;border-radius:2px;box-shadow:var(--glow-green)}
+        .categories{padding:var(--space-xl) 0;position:relative}
+        .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--space-md)}
+        .category-card{position:relative;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:var(--space-xl) var(--space-md);text-align:center;cursor:pointer;transition:var(--transition-base);overflow:hidden;backdrop-filter:blur(20px)}
+        .category-card:hover{transform:translateY(-10px);border-color:var(--neon-green);box-shadow:var(--glow-green)}
+        .category-icon-img,.category-icon{width:80px;height:80px;margin:0 auto var(--space-md);display:block;transition:var(--transition-base);filter:drop-shadow(0 0 10px rgba(255,255,255,0.2))}
+        .category-card:hover .category-icon-img{transform:scale(1.15) rotate(5deg);filter:drop-shadow(0 0 20px var(--neon-green-glow))}
+        .category-title{font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-xs);letter-spacing:1px}
+        .category-desc{font-size:0.85rem;color:var(--text-muted)}
+        .menu{padding:var(--space-xl) 0;position:relative}
+        .menu-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-sm);margin-bottom:var(--space-xl)}
+        .tab-btn{display:flex;align-items:center;gap:0.5rem;padding:var(--space-sm) var(--space-lg);background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-xl);color:var(--text-secondary);font-size:0.9rem;font-weight:500;letter-spacing:0.5px;transition:var(--transition-base);backdrop-filter:blur(20px)}
+        .tab-btn:hover{border-color:var(--neon-green);color:var(--neon-green)}
+        .tab-btn.active{background:linear-gradient(135deg,var(--neon-green) 0%,var(--neon-green-dark) 100%);color:var(--bg-primary);border-color:transparent;box-shadow:0 4px 20px var(--neon-green-glow)}
+        .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:var(--space-md)}
+        .menu-card{opacity:0;transform:translateY(30px);transition:opacity 0.5s ease,transform 0.5s ease}
+        .menu-card.visible{opacity:1;transform:translateY(0)}
+        .menu-card.hidden{display:none}
+        .menu-card{position:relative;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);overflow:hidden;backdrop-filter:blur(20px);transition:var(--transition-base)}
+        .menu-card:hover{transform:translateY(-5px);border-color:var(--neon-green);box-shadow:var(--glow-green)}
+        .card-image{height:140px;background:linear-gradient(135deg,var(--bg-tertiary) 0%,var(--bg-secondary) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+        .card-icon-img{width:90px;height:90px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(255,255,255,0.2));transition:var(--transition-base)}
+        .menu-card:hover .card-icon-img{transform:scale(1.15) rotate(5deg);filter:drop-shadow(0 0 30px var(--neon-green-glow))}
+        .card-content{padding:var(--space-md)}
+        .card-title{font-size:1.15rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-xs);letter-spacing:0.5px}
+        .card-desc{font-size:0.85rem;color:var(--text-muted);margin-bottom:var(--space-md);display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .card-footer{display:flex;justify-content:space-between;align-items:center}
+        .card-price{font-size:1.4rem;font-weight:700;color:var(--neon-green);letter-spacing:1px;text-shadow:0 0 10px var(--neon-green-glow)}
+        .card-btn{width:36px;height:36px;border-radius:50%;background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--neon-green);font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:var(--transition-base)}
+        .card-btn:hover{background:var(--neon-green);color:var(--bg-primary);box-shadow:var(--glow-green)}
+        .featured{padding:var(--space-xl) 0;position:relative;overflow:hidden}
+        .featured-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at center,rgba(34,197,94,0.05) 0%,transparent 70%);z-index:-1}
+        .featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-lg)}
+        .featured-card{position:relative;background:linear-gradient(135deg,rgba(34,197,94,0.08) 0%,rgba(20,20,20,0.9) 100%);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:var(--space-xl);text-align:center;transition:var(--transition-base);overflow:hidden}
+        .featured-card:hover{transform:translateY(-10px);border-color:var(--neon-green);box-shadow:var(--glow-green)}
+        .featured-card.featured-large{grid-column:span 2}
+        .featured-badge{position:absolute;top:var(--space-md);right:var(--space-md);background:linear-gradient(135deg,var(--neon-green) 0%,var(--neon-green-dark) 100%);color:var(--bg-primary);padding:var(--space-xs) var(--space-md);border-radius:var(--radius-xl);font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;box-shadow:var(--glow-green)}
+        .featured-image{height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-md)}
+        .featured-icon-img{width:100px;height:100px;object-fit:contain;filter:drop-shadow(0 0 30px var(--neon-green-glow));animation:float-emoji 3s ease-in-out infinite}
+        @keyframes float-emoji{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .featured-title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-sm)}
+        .featured-desc{color:var(--text-secondary);margin-bottom:var(--space-md);line-height:1.8}
+        .featured-price{display:inline-block;font-size:1.8rem;font-weight:700;color:var(--neon-green);letter-spacing:2px;text-shadow:var(--glow-green)}
+        .experience{position:relative;padding:var(--space-xl) 0;overflow:hidden}
+        .experience-particles{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle,var(--neon-green) 1px,transparent 1px);background-size:50px 50px;opacity:0.05;z-index:0}
+        .experience-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center}
+        .experience-text .section-label,.experience-text .section-title{text-align:left}
+        .experience-desc{color:var(--text-secondary);font-size:1.1rem;line-height:1.9;margin-bottom:var(--space-xl)}
+        .experience-stats{display:flex;gap:var(--space-lg);flex-wrap:wrap}
+        .stat{display:flex;flex-direction:column;gap:var(--space-xs);padding:var(--space-md);background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;min-width:120px;transition:var(--transition-base)}
+        .stat:hover{border-color:var(--neon-green);transform:translateY(-3px)}
+        .stat-number{font-size:1.5rem;font-weight:700;color:var(--neon-green);text-shadow:var(--glow-green)}
+        .stat-label{font-size:0.8rem;color:var(--text-muted)}
+        .experience-quote-wrapper{display:flex;align-items:center;justify-content:center}
+        .experience-quote{text-align:center;padding:var(--space-xl);position:relative}
+        .quote-mark{font-family:var(--font-display);font-size:8rem;color:var(--neon-green);opacity:0.2;position:absolute;top:-40px;left:0;line-height:1}
+        .quote-text{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);font-style:italic;color:var(--text-primary);line-height:1.4;margin-bottom:var(--space-md)}
+        .quote-author{display:block;font-size:0.95rem;color:var(--neon-green);letter-spacing:3px;text-transform:uppercase}
+        .footer{background:var(--bg-secondary);border-top:1px solid var(--glass-border);padding:var(--space-xl) 0 var(--space-md);position:relative}
+        .footer-content{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-xl);margin-bottom:var(--space-xl)}
+        .footer-logo{display:flex;align-items:center;gap:var(--space-md);margin-bottom:var(--space-xs)}
+        .logo-emoji{font-size:2rem;filter:drop-shadow(0 0 10px var(--neon-green-glow))}
+        .footer-brand-text{display:flex;flex-direction:column}
+        .footer-tagline{color:var(--text-muted);letter-spacing:2px;font-size:0.9rem}
+        .footer-info{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+        .footer-col h4{font-size:0.9rem;font-weight:600;color:var(--neon-green);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-md)}
+        .footer-col p{color:var(--text-secondary);font-size:0.9rem;margin-bottom:var(--space-xs)}
+        .social-links{display:flex;gap:var(--space-sm)}
+        .social-link{width:45px;height:45px;display:flex;align-items:center;justify-content:center;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:50%;color:var(--text-secondary);transition:var(--transition-base)}
+        .social-link svg{width:20px;height:20px}
+        .social-link:hover{background:var(--neon-green);border-color:var(--neon-green);color:var(--bg-primary);transform:translateY(-5px);box-shadow:var(--glow-green)}
+        .footer-map{margin-top:var(--space-xl);margin-bottom:var(--space-xl);position:relative}
+        .map-container{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--glass-border);box-shadow:0 8px 32px rgba(0,0,0,0.7)}
+        .map-container iframe{display:block;width:100%;filter:grayscale(0.3) contrast(1.1) brightness(0.9);transition:filter var(--transition-base)}
+        .map-container iframe:hover{filter:grayscale(0)}
+        .map-overlay{position:absolute;bottom:var(--space-md);left:50%;transform:translateX(-50%);z-index:10}
+        .map-full-btn{display:inline-flex;align-items:center;gap:var(--space-sm);background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border:1px solid var(--neon-green);padding:var(--space-sm) var(--space-lg);border-radius:var(--radius-xl);color:var(--text-primary);font-size:0.9rem;font-weight:600;transition:var(--transition-base);box-shadow:0 4px 20px rgba(0,0,0,0.5)}
+        .map-full-btn:hover{background:var(--neon-green);color:var(--bg-primary);box-shadow:var(--glow-green);transform:translateY(-3px)}
+        .map-pin-icon{font-size:1.2rem}
+        .map-link{display:inline-flex;align-items:center;gap:var(--space-xs);color:var(--neon-green);font-size:0.85rem;font-weight:500;margin-top:var(--space-xs);transition:var(--transition-base)}
+        .map-link:hover{gap:var(--space-sm);color:var(--neon-green-light)}
+        .footer-bottom{text-align:center;padding-top:var(--space-lg);border-top:1px solid var(--glass-border)}
+        .footer-bottom p{color:var(--text-muted);font-size:0.85rem}
+        .whatsapp-float{position:fixed;bottom:var(--space-lg);right:var(--space-lg);display:flex;align-items:center;gap:var(--space-sm);background:linear-gradient(135deg,#25d366 0%,#128c7e 100%);color:var(--text-primary);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-xl);font-weight:600;font-size:0.95rem;box-shadow:0 4px 30px rgba(37,211,102,0.5);z-index:999;transition:var(--transition-base);animation:whatsapp-pulse 2s ease-in-out infinite}
+        .whatsapp-float svg{width:28px;height:28px}
+        .whatsapp-float:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 8px 40px rgba(37,211,102,0.6)}
+        @keyframes whatsapp-pulse{0%,100%{box-shadow:0 4px 30px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 40px rgba(37,211,102,0.7)}}
+        @media(max-width: 768px){.nav-trigger{display:flex}.nav-overlay{display:block;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);backdrop-filter:blur(5px);z-index:999;opacity:0;transition:opacity var(--transition-base)}.nav-overlay.active{opacity:1}.nav-list{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;background:linear-gradient(135deg,var(--bg-tertiary) 0%,var(--bg-primary) 100%);flex-direction:column;justify-content:center;align-items:center;gap:var(--space-xl);transition:var(--transition-base);border-left:1px solid var(--glass-border);padding:var(--space-xl)}.nav-list.active{right:0}.nav-item{font-size:1.3rem}.footer-content{grid-template-columns:1fr;gap:var(--space-xl);text-align:center}.footer-logo{justify-content:center}.footer-info{grid-template-columns:1fr;gap:var(--space-lg)}.social-links{justify-content:center}.map-overlay{bottom:var(--space-sm)}.map-full-btn{padding:var(--space-xs) var(--space-md);font-size:0.85rem}.map-container iframe{height:280px!important}.featured-card.featured-large{grid-column:span 1}.experience-content{grid-template-columns:1fr;gap:var(--space-xl)}.experience-text .section-label,.experience-text .section-title{text-align:center}.experience-desc{text-align:center}.experience-stats{justify-content:center}}
+        @media(max-width: 480px){.whatsapp-float span{display:none}.whatsapp-float{padding:var(--space-md);border-radius:50%}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}html{scroll-behavior:auto}}
+        a:focus,button:focus{outline:2px solid var(--neon-green);outline-offset:2px}
+        ::selection{background:var(--neon-green);color:var(--bg-primary)}
+        ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg-primary)}::-webkit-scrollbar-thumb{background:var(--neon-green);border-radius:5px}::-webkit-scrollbar-thumb:hover{background:var(--neon-green-light)}
+    </style>
+    
+    <!-- Non-Critical CSS (deferred) -->
+    <link rel="preload" as="style" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
-<body>
+<body class="dark-mode">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring"></div>
+        <div class="logo-container">
+            <img src="images/logo.svg" alt="El Jefe Lounge" class="logo-preloader" onerror="this.style.display='none'">
+        </div>
+        <p class="loading-text">Cargando experiencia...</p>
+    </div>
 
-<header>
-  <h1>El Jefe Lounge</h1>
-  <p>🍽️ Carta Digital – Sabores del Amazonas</p>
-</header>
+    <!-- Particles Background (optimized count) -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Gradient Orbs -->
+    <div class="ambient-light">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-<nav>
-  <button onclick="scrollToSection('combos')">🍱 Combos</button>
-  <button onclick="scrollToSection('platos')">🥘 Platos</button>
-  <button onclick="scrollToSection('bebidas')">🥤 Bebidas</button>
-  <button onclick="scrollToSection('cervezas')">🍺 Cervezas</button>
-  <button onclick="scrollToSection('piqueos')">🍢 Piqueos</button>
-</nav>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-logo">🌿</span>
+                <div class="brand-text">
+                    <span class="brand-name">El Jefe</span>
+                    <span class="brand-tag">LOUNGE</span>
+                </div>
+            </a>
+            
+            <button class="nav-trigger" id="navTrigger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-overlay" id="navOverlay"></div>
+            
+            <ul class="nav-list" id="navList">
+                <li><a href="#hero" class="nav-item">Inicio</a></li>
+                <li><a href="#menu" class="nav-item">Carta</a></li>
+                <li><a href="#featured" class="nav-item">Destacados</a></li>
+                <li><a href="#experience" class="nav-item">Experiencia</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="section" id="combos">
-  <h2>🍱 Combos</h2>
-  <ul>
-    <li><span>Fetuccini a la Huancaína + Fetuccini al Pesto</span><span class="price">S/ 35.00</span></li>
-    <li><span>Ceviche + Chicharrón</span><span class="price">S/ 40.00</span></li>
-  </ul>
-</div>
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-image-overlay"></div>
+            <img src="images/hero_visual.png" alt="" class="hero-bg-image" onerror="this.style.display='none'" loading="eager">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in">
+                <span class="badge-leaf">🌿</span>
+                <span class="badge-text">Jacintillo</span>
+            </div>
+            
+            <h1 class="hero-title animate-slide-up">
+                <span class="title-main">El Jefe</span>
+                <span class="title-accent">Lounge</span>
+            </h1>
+            
+            <p class="hero-tagline animate-slide-up delay-1">Fusión Amazónica</p>
+            
+            <p class="hero-desc animate-slide-up delay-2">
+                Una experiencia gastronómica donde la selva se encuentra con la elegancia. 
+                Sabores intensos, noches inolvidables.
+            </p>
+            
+            <div class="hero-actions animate-slide-up delay-3">
+                <a href="#menu" class="btn btn-glow">
+                    <span class="btn-text">Ver Carta</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="#experience" class="btn btn-ghost">
+                    <span class="btn-text">Conocer Más</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Explora</span>
+        </div>
+    </header>
 
-<div class="section" id="platos">
-  <h2>🥘 Platos</h2>
-  <ul>
-    <li><span>Fetuccini al Pesto</span><span class="price">S/ 25.00</span></li>
-    <li><span>Fetuccini a la Huancaína</span><span class="price">S/ 25.00</span></li>
-    <li><span>Fetuccini con Paiche</span><span class="price">S/ 35.00</span></li>
-    <li><span>Fetuccini Amazónico</span><span class="price">S/ 28.00</span></li>
-    <li><span>Chicharrón de Pollo</span><span class="price">S/ 22.00</span></li>
-    <li><span>Ceviche Amazónico</span><span class="price">S/ 35.00</span></li>
-    <li><span>Chicharrón de Paiche</span><span class="price">S/ 35.00</span></li>
-    <li><span>Paiche a la Plancha</span><span class="price">S/ 35.00</span></li>
-    <li><span>Leche de Tigre</span><span class="price">S/ 18.00</span></li>
-    <li><span>Lomo Saltado</span><span class="price">S/ 18.00</span></li>
-    <li><span>Saltado Amazónico</span><span class="price">S/ 20.00</span></li>
-    <li><span>Saltado de Pollo</span><span class="price">S/ 18.00</span></li>
-    <li><span>Pechuga a la Plancha</span><span class="price">S/ 20.00</span></li>
-    <li><span>Pechuga en Salsa Nativa</span><span class="price">S/ 25.00</span></li>
-    <li><span>Tacacho con Cecina</span><span class="price">S/ 18.00</span></li>
-    <li><span>Tacacho Mixto</span><span class="price">S/ 20.00</span></li>
-    <li><span>Paiche Amazónico</span><span class="price">S/ 30.00</span></li>
-  </ul>
-</div>
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Descubre</span>
+                <h2 class="section-title">Nuestras Categorías</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="combos">
+                    <div class="category-bg"></div>
+                    <img src="images/category-combos.svg" alt="Combos" class="category-icon-img" loading="lazy">
+                    <h3 class="category-title">Combos</h3>
+                    <p class="category-desc">Las mejores combinaciones</p>
+                    <div class="category-glow"></div>
+                </div>
+                
+                <div class="category-card" data-category="platos">
+                    <div class="category-bg"></div>
+                    <img src="images/category-platos.svg" alt="Platos" class="category-icon-img" loading="lazy">
+                    <h3 class="category-title">Platos</h3>
+                    <p class="category-desc">Sabores amazónicos</p>
+                    <div class="category-glow"></div>
+                </div>
+                
+                <div class="category-card" data-category="bebidas">
+                    <div class="category-bg"></div>
+                    <img src="images/category-bebidas.svg" alt="Bebidas" class="category-icon-img" loading="lazy">
+                    <h3 class="category-title">Bebidas</h3>
+                    <p class="category-desc">Refrescantes y únicas</p>
+                    <div class="category-glow"></div>
+                </div>
+                
+                <div class="category-card" data-category="cervezas">
+                    <div class="category-bg"></div>
+                    <img src="images/category-cervezas.svg" alt="Cervezas" class="category-icon-img" loading="lazy">
+                    <h3 class="category-title">Cervezas</h3>
+                    <p class="category-desc">Las mejores marcas</p>
+                    <div class="category-glow"></div>
+                </div>
+                
+                <div class="category-card" data-category="piqueos">
+                    <div class="category-bg"></div>
+                    <img src="images/category-piqueos.svg" alt="Piqueos" class="category-icon-img" loading="lazy">
+                    <h3 class="category-title">Piqueos</h3>
+                    <p class="category-desc">Para compartir</p>
+                    <div class="category-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="section" id="bebidas">
-  <h2>🥤 Bebidas</h2>
-  <ul>
-    <li><span>Limonada Tradicional</span><span class="price">S/ 8.00</span></li>
-    <li><span>Limonada con Frutas</span><span class="price">S/ 11.00</span></li>
-    <li><span>Limonada Frozen</span><span class="price">S/ 11.00</span></li>
-    <li><span>Gaseosa 500ml</span><span class="price">S/ 4.00</span></li>
-    <li><span>Gaseosa 1L</span><span class="price">S/ 6.00</span></li>
-    <li><span>Agua Mineral</span><span class="price">S/ 5.00</span></li>
-  </ul>
-</div>
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Delicioso</span>
+                <h2 class="section-title">Nuestra Carta</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-filter="all">
+                    <span class="tab-icon">🍽️</span>
+                    <span class="tab-text">Todos</span>
+                </button>
+                <button class="tab-btn" data-filter="combos">
+                    <span class="tab-icon">🍱</span>
+                    <span class="tab-text">Combos</span>
+                </button>
+                <button class="tab-btn" data-filter="platos">
+                    <span class="tab-icon">🥘</span>
+                    <span class="tab-text">Platos</span>
+                </button>
+                <button class="tab-btn" data-filter="bebidas">
+                    <span class="tab-icon">🥤</span>
+                    <span class="tab-text">Bebidas</span>
+                </button>
+                <button class="tab-btn" data-filter="cervezas">
+                    <span class="tab-icon">🍺</span>
+                    <span class="tab-text">Cervezas</span>
+                </button>
+                <button class="tab-btn" data-filter="piqueos">
+                    <span class="tab-icon">🍢</span>
+                    <span class="tab-text">Piqueos</span>
+                </button>
+            </div>
+            
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Combos -->
+                <article class="menu-card" data-category="combos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/category-combos.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fetuccini Huancaína + Pesto</h3>
+                        <p class="card-desc">La combinación perfecta de dos clásicos</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 35</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="combos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/category-combos.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Ceviche + Chicharrón</h3>
+                        <p class="card-desc">Lo mejor del mar y la selva</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 40</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Platos -->
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-pasta.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fetuccini al Pesto</h3>
+                        <p class="card-desc">Pasta fresca con salsa de albahaca</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 25</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-pasta.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fetuccini a la Huancaína</h3>
+                        <p class="card-desc">Tradición peruana en cada bocado</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 25</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-fish.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fetuccini con Paiche</h3>
+                        <p class="card-desc">El gigante del Amazonas en tu plato</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 35</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-pasta.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fetuccini Amazónico</h3>
+                        <p class="card-desc">Fusión de sabores de la selva</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 28</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-chicken.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Chicharrón de Pollo</h3>
+                        <p class="card-desc">Crujiente y jugoso</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 22</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-fish.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Ceviche Amazónico</h3>
+                        <p class="card-desc">Pesca fresca con toque selvático</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 35</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-fish.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Chicharrón de Paiche</h3>
+                        <p class="card-desc">El rey del Amazonas frito</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 35</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-fish.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Paiche a la Plancha</h3>
+                        <p class="card-desc">Sencillo y delicioso</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 35</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-soup.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Leche de Tigre</h3>
+                        <p class="card-desc">El secreto del ceviche perfecto</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 18</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-meat.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lomo Saltado</h3>
+                        <p class="card-desc">Clásico peruano wok</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 18</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-meat.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Saltado Amazónico</h3>
+                        <p class="card-desc">Con ingredientes de la selva</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 20</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-chicken.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Saltado de Pollo</h3>
+                        <p class="card-desc">Jugoso y lleno de sabor</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 18</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-chicken.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pechuga a la Plancha</h3>
+                        <p class="card-desc">Saludable y delicioso</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 20</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-chicken.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pechuga en Salsa Nativa</h3>
+                        <p class="card-desc">Salsa secreta de la Amazonía</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 25</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-plantain.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tacacho con Cecina</h3>
+                        <p class="card-desc">Tradición amazónica pura</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 18</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="platos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-plantain.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tacacho Mixto</h3>
+                        <p class="card-desc">Con carne y cecina</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 20</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Bebidas -->
+                <article class="menu-card" data-category="bebidas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-lemonade.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Limonada Tradicional</h3>
+                        <p class="card-desc">Refrescante y natural</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 8</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="bebidas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-cocktail.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Limonada con Frutas</h3>
+                        <p class="card-desc">Mix de frutas tropicales</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 11</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="bebidas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-ice.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Limonada Frozen</h3>
+                        <p class="card-desc">Helada y refrescante</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 11</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="bebidas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-soda.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gaseosa</h3>
+                        <p class="card-desc">Personal / 1L</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 4 / 6</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="bebidas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-water.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Agua Mineral</h3>
+                        <p class="card-desc">Agua pura de manantial</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 5</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Cervezas -->
+                <article class="menu-card" data-category="cervezas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-beer.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">San Juan</h3>
+                        <p class="card-desc">Cerveza de la selva</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 8</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="cervezas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-beer.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Corona</h3>
+                        <p class="card-desc">Importada mexicana</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 8</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="cervezas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-beer.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pilsen</h3>
+                        <p class="card-desc">La clásica peruana</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 9</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="cervezas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-beer.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cusqueña</h3>
+                        <p class="card-desc">Premium peruana</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 10</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="cervezas">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-beer.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cusqueña Personal</h3>
+                        <p class="card-desc">Formato pequeño</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 6</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Piqueos -->
+                <article class="menu-card" data-category="piqueos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-cheese.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tequeño Amazónico</h3>
+                        <p class="card-desc">Con toque de la selva</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 15</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="piqueos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-plantain.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Patacones a la Chalaca</h3>
+                        <p class="card-desc">Con mariscos frescos</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 18</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="piqueos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-plantain.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Canasta de Plátanos</h3>
+                        <p class="card-desc">Variedad de preparaciones</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 20</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="menu-card" data-category="piqueos">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="images/icon-chifle.svg" alt="" class="card-icon-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Chifle con Cecina</h3>
+                        <p class="card-desc">El snack amazónico</p>
+                        <div class="card-footer">
+                            <span class="card-price">S/ 13</span>
+                            <button class="card-btn" aria-label="Ver detalles">+</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-<div class="section" id="cervezas">
-  <h2>🍺 Cervezas</h2>
-  <ul>
-    <li><span>San Juan</span><span class="price">S/ 8.00</span></li>
-    <li><span>Corona</span><span class="price">S/ 8.00</span></li>
-    <li><span>Pilsen</span><span class="price">S/ 9.00</span></li>
-    <li><span>Cusqueña</span><span class="price">S/ 10.00</span></li>
-    <li><span>Cusqueña Personal</span><span class="price">S/ 6.00</span></li>
-  </ul>
-</div>
+    <!-- Featured Section -->
+    <section class="featured" id="featured">
+        <div class="featured-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Especial</span>
+                <h2 class="section-title">Recomendados del Chef</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-card featured-large">
+                    <div class="featured-badge">⭐ Recomendado</div>
+                    <div class="featured-image">
+                        <img src="images/icon-fish.svg" alt="" class="featured-icon-img" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">Paiche a la Plancha</h3>
+                        <p class="featured-desc">El gigante del Amazonas preparado a la perfección. Una experiencia única que representa lo mejor de nuestra selva.</p>
+                        <span class="featured-price">S/ 35</span>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-badge">🔥 Popular</div>
+                    <div class="featured-image">
+                        <img src="images/icon-pasta.svg" alt="" class="featured-icon-img" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">Fetuccini Amazónico</h3>
+                        <p class="featured-desc">Fusión perfecta de pasta italiana con ingredientes selváticos.</p>
+                        <span class="featured-price">S/ 28</span>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-badge">🌟 Exclusivo</div>
+                    <div class="featured-image">
+                        <img src="images/icon-fish.svg" alt="" class="featured-icon-img" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-title">Ceviche Amazónico</h3>
+                        <p class="featured-desc">Pesca fresca con el toque único de la Amazonía.</p>
+                        <span class="featured-price">S/ 35</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="section" id="piqueos">
-  <h2>🍢 Piqueos</h2>
-  <ul>
-    <li><span>Tequeño Amazónico</span><span class="price">S/ 15.00</span></li>
-    <li><span>Patacones a la Chalaca Amazónico DOC</span><span class="price">S/ 18.00</span></li>
-    <li><span>Canasta de Plátanos en Salsa Nativa DOC</span><span class="price">S/ 20.00</span></li>
-    <li><span>Chifle con Cecina</span><span class="price">S/ 13.00</span></li>
-  </ul>
-</div>
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="experience-particles"></div>
+        <div class="container">
+            <div class="experience-content">
+                <div class="experience-text">
+                    <span class="section-label">Vive la experiencia</span>
+                    <h2 class="section-title">Vive la selva en cada bocado</h2>
+                    <p class="experience-desc">
+                        En El Jefe Lounge, cada plato cuenta una historia. 
+                        Ingredientes frescos de la Amazonía se combinan con técnicas modernas 
+                        para crear una experiencia culinaria inolvidable.
+                    </p>
+                    
+                    <div class="experience-stats">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Ingredientes Frescos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Platos Únicos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">🌙</span>
+                            <span class="stat-label">Ambiente Nocturno</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-quote-wrapper">
+                    <div class="experience-quote">
+                        <span class="quote-mark">"</span>
+                        <p class="quote-text">Sabores intensos, noches inolvidables</p>
+                        <span class="quote-author">— El Jefe Lounge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-emoji">🌿</span>
+                        <div class="footer-brand-text">
+                            <span class="brand-name">El Jefe</span>
+                            <span class="brand-tag">LOUNGE</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Fusión Amazónica</p>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-col">
+                        <h4>Ubicación</h4>
+                        <p>📍 Carretera a la Cueva de las Lechuzas</p>
+                        <p>A pocos metros antes del Mirador Jacintillo</p>
+                        <p>Tingo María, Perú 10131</p>
+                        <a href="https://maps.app.goo.gl/yDyMoTRRoxoh9aLg9?g_st=ic" target="_blank" rel="noopener" class="map-link">
+                            <span>Cómo llegar</span>
+                            <span class="map-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Horario</h4>
+                        <p>Mar - Dom: 6PM - 2AM</p>
+                        <p>Lunes: Cerrado</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Síguenos</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1A3myq5Exq/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/el_jefe.lounge?igsh=eDFzaWs3bnAyN3dj" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="https://www.tiktok.com/@percyjusto5?_r=1&_t=ZS-94wOC1tNfW5" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.51.36-.9V.02z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Maps Embed (Lazy Loaded) -->
+            <div class="footer-map">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.19361133785!2d-76.0120018!3d-9.3161063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a641316420243f%3A0x642f8115bcaf9a48!2sEl%20Jefe%20-%20Fusi%C3%B3n%20Amaz%C3%B3nica%20%26%20Lounge!5e0!3m2!1ses!2spe!4v1774307923240!5m2!1ses!2spe" 
+                        width="100%" 
+                        height="350" 
+                        style="border:0;" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de El Jefe Lounge">
+                    </iframe>
+                </div>
+                <div class="map-overlay">
+                    <a href="https://maps.app.goo.gl/yDyMoTRRoxoh9aLg9?g_st=ic" target="_blank" rel="noopener" class="map-full-btn">
+                        <span class="map-pin-icon">📍</span>
+                        <span>Abrir en Google Maps</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 El Jefe - Fusión Amazónica & Lounge. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-<footer style="text-align:center; margin-top:50px; font-size: 13px; color: #999;">
-  © 2025 - Diseñado por <strong>Reiner Jimenez</strong>
-</footer>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51942725442" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.082c2.408 1.313 5.137 2.082 8.067 2.082 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.146c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.245 1.376 1.409-5.237-0.324-0.515c-1.268-2.013-1.937-4.336-1.937-6.74 0-7.321 5.954-13.275 13.275-13.275 7.321 0 13.275 5.954 13.275 13.275s-5.954 13.275-13.275 13.275zM21.794 18.625c-0.269-0.134-1.587-0.783-1.834-0.873-0.246-0.089-0.425-0.134-0.604 0.134-0.179 0.268-0.693 0.873-0.85 1.052-0.157 0.179-0.313 0.201-0.582 0.067-0.269-0.134-1.134-0.419-2.161-1.334-0.797-0.711-1.334-1.587-1.491-1.856-0.157-0.268-0.017-0.414 0.118-0.548 0.121-0.12 0.269-0.313 0.403-0.47 0.134-0.157 0.179-0.268 0.268-0.447 0.089-0.179 0.045-0.335-0.022-0.47-0.067-0.134-0.604-1.455-0.828-1.993-0.219-0.525-0.441-0.454-0.604-0.463-0.157-0.008-0.335-0.008-0.514-0.008-0.179 0-0.47 0.067-0.716 0.335-0.246 0.268-0.94 0.918-0.94 2.236 0 1.318 0.962 2.591 1.096 2.77 0.134 0.179 1.892 2.892 4.583 4.053 2.691 1.161 2.691 0.773 3.183 0.728 0.492-0.045 1.587-0.649 1.811-1.275 0.224-0.626 0.224-1.164 0.157-1.275-0.067-0.111-0.246-0.179-0.515-0.313z"/>
+        </svg>
+        <span>Reservar</span>
+    </a>
 
+    <!-- Scripts (deferred) -->
+    <script src="js/app.js" defer></script>
 </body>
 </html>

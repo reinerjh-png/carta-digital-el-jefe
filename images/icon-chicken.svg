@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="chickenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="45" fill="rgba(34, 197, 94, 0.1)" stroke="url(#chickenGrad)" stroke-width="2"/>
+  <!-- Chicken drumstick -->
+  <path d="M35 55 Q30 65 40 70 L45 68 Q50 65 55 60 L65 50 Q70 45 65 38 Q60 32 50 38 L45 45 Q40 50 35 55" fill="url(#chickenGrad)" opacity="0.7"/>
+  <!-- Bone -->
+  <circle cx="38" cy="68" r="4" fill="none" stroke="url(#chickenGrad)" stroke-width="2"/>
+  <!-- Grill marks -->
+  <line x1="45" y1="45" x2="55" y2="55" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+  <line x1="50" y1="43" x2="60" y2="53" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+</svg>

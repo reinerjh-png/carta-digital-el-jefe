@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="platosGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37"/>
+      <stop offset="100%" style="stop-color:#B8941F"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="rgba(212, 175, 55, 0.1)" stroke="url(#platosGrad)" stroke-width="2"/>
+  
+  <!-- Plate -->
+  <ellipse cx="60" cy="65" rx="35" ry="12" fill="none" stroke="url(#platosGrad)" stroke-width="3"/>
+  <ellipse cx="60" cy="65" rx="28" ry="9" fill="none" stroke="url(#platosGrad)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Food mound -->
+  <ellipse cx="60" cy="58" rx="20" ry="8" fill="url(#platosGrad)" opacity="0.4"/>
+  
+  <!-- Garnish -->
+  <circle cx="55" cy="55" r="3" fill="url(#platosGrad)"/>
+  <circle cx="65" cy="55" r="3" fill="url(#platosGrad)"/>
+  <circle cx="60" cy="52" r="2" fill="url(#platosGrad)"/>
+  
+  <!-- Steam -->
+  <path d="M52 40 Q57 30 52 20" stroke="url(#platosGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M60 38 Q65 28 60 18" stroke="url(#platosGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M68 40 Q73 30 68 20" stroke="url(#platosGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Glow -->
+  <circle cx="60" cy="60" r="50" fill="url(#platosGrad)" opacity="0.1" filter="url(#glow)"/>
+</svg>
