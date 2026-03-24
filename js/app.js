@@ -11,7 +11,7 @@
         particleCount: 25,
         preloaderDuration: 2000,
         scrollThreshold: 100,
-        observerThreshold: 0.1
+        observerThreshold: 0
     };
 
     // Función segura para seleccionar elementos
