@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicio Suspendido</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --card: #0a0a0a;
+      --border: #1f1f1f;
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+      --accent: #22c55e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: var(--text-primary);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 90%;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.1);
+      color: var(--accent);
+      margin-bottom: 20px;
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 25px 0;
+    }
+
+    .contact {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .contact span {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #52525b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="status">● Servicio inactivo</div>
+
+    <h1>Sitio web suspendido</h1>
+
+    <p>
+      Este sitio web ha sido temporalmente suspendido debido a la falta de renovación del servicio.
+      Para restablecer el acceso o recibir más información, por favor comuníquese con el desarrollador responsable.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="contact">
+      📩 Contacto: <span>+51 977 480 721</span>
+    </div>
+
+    <footer>
+      © 2026 Servicio web administrado
+    </footer>
+  </div>
+
+</body>
+</html>
